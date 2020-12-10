@@ -1,0 +1,4 @@
+textFile = open("/home/william/Documents/Programming/AdventOfCode2020/Code
+william@william-HP-ENVY-x360-Convertible-13-ar0xxx:~/Docum", "r")
+
+print(textFile.readline())

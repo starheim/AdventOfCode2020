@@ -1,15 +1,17 @@
-textFile = open("/home/william/Documents/Programming/AdventOfCode2020/TextFiles/Day1/part1.txt", "r")
+##textFile = open("/home/william/Documents/Programming/AdventOfCode2020/TextFiles/Day1/part1.txt", "r")
 
-num = 0;
+##numbers = []
 
-for i in textFile:
-	num += 1
+##for i in textFile:
+##	numbers.append(i)
 
-print(num)
+with open("/home/william/Documents/Programming/AdventOfCode2020/TextFiles/Day1/part1.txt") as f:
+	numbers = list(map(str.split, f.read().split('\n')))
 
-for n in textFile:
-	num += 1
-	for m in textFile:
-		print(n + "" + m)
+print(numbers)
+
+for n in numbers:
+	for m in numbers:
+		print(n + "" + m + "=" + n+m)
 		if n + m == 2020:
-			print(n + " +  " + m + " = " + n * m)
+			print(n + " " + m + " = " + n * m)
