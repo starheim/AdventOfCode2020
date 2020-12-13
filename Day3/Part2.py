@@ -24,13 +24,9 @@ textLines = fileReader.readlines()
 fileReader.close()
 
 product = calculateNumberOfTrees(1, 1)
-
 product *= calculateNumberOfTrees(3, 1)
-
 product *= calculateNumberOfTrees(5, 1)
-
 product *= calculateNumberOfTrees(7, 1)
-
 product *= calculateNumberOfTrees(1, 2)
 
 print("------------------------------")
