@@ -15,17 +15,40 @@ fileReader.close()
 numberOfPassports = 0
 numberOfValidPassports = 0
 
-passports = None
+validPassport = False
+
+passports = []
 passport = Passport()
 
 for s in textLines:
-    if(s == '\n'):
+    if(s != '\n'):
+        fields = s.split()
+        print(s[:-1])
+        print(fields)
+        for field in fields:
+            print(field)
+            entry = field.split(:)
+            if entry[0] == 'byr'
+                passport.byr == entry[1]
+            else if entry[0] == 'iyr'
+                passport.iyr == entry[1]
+            else if entry[0] == 'eyr'
+                passport.eyr == entry[1]
+            else if entry[0] == 'hgt'
+                passport.iyr == entry[1]
+            else if entry[0] == 'hcl'
+                passport.iyr == entry[1]
+            else if entry[0] == 'ecl'
+                passport.iyr == entry[1]
+            else if entry[0] == 'pid'
+                passport.iyr == entry[1]
+            else if entry[0] == 'cid'
+                passport.iyr == entry[1]
+    else:
         numberOfPassports += 1
-        print("Number of passports: {}".format(numberOfPassports))
+        passports.append(passport)
         print(s)
         print("-------------------------------------------------")
-    else:
-        print(s)
 
 print("Number of passports: {}".format(numberOfPassports))
         
