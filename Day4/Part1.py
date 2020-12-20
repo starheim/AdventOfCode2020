@@ -1,10 +1,9 @@
 class Passport:
 
     def __init__(self):
-        self.filledFields = 0
         self.passportInfo = {}
 
-fileReader = open("Day4/Test.txt", "r")
+fileReader = open("Day4/Day4.txt", "r")
 textLines = fileReader.readlines()
 fileReader.close()
 
@@ -20,7 +19,6 @@ for s in textLines:
         for field in fields:
             entry = field.split(":")
             passport.passportInfo[entry[0]] = entry[1]
-            passport.filledFields += 1
     else:
         numberOfPassports += 1
         passports.append(passport)
@@ -30,7 +28,8 @@ numberOfPassports += 1
 passports.append(passport)
 
 for p in passports:
-    if(p.filledFields > 7 or (len(p.passportInfo) == 7 and 'cid' in p.passportInfo)):
+    valid = True
+    if(len(p.passportInfo) > 7 or (len(p.passportInfo) == 7 and 'cid' not in p.passportInfo)):
         numberOfValidPassports += 1
 
 print("Number of passports: {}, number of valid ones: {}".format(numberOfPassports, numberOfValidPassports))
