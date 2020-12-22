@@ -37,7 +37,7 @@ def checkValidity(passport):
         return False
 
     hcl = p.passportInfo['hcl']
-    if not(hcl[0] == '#' and re.match("^[a-f0-9]*$",hcl[1:])):
+    if not(hcl[0] == '#' and re.match("^[a-f0-9]*$", hcl[1:])):
         return False
 
     legalColors = ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']
