@@ -30,7 +30,6 @@ fileReader.close()
 
 rows = 127
 columns = 7
-seats = [[0] * columns for i in range(rows)]
 answer = 0
 
 for s in textLines:
