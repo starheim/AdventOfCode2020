@@ -10,7 +10,6 @@ def findRow(min, max, reference):
     else:
         return findRow(middle, max, reference[1:])
 
-
 def findColoumn(min, max, reference):
     if(len(reference)== 1):
         if(reference == 'L'):
@@ -22,7 +21,6 @@ def findColoumn(min, max, reference):
         return findColoumn(min, middle -1, reference[1:])
     else:
         return findColoumn(middle, max, reference[1:])
-
 
 fileReader = open('Day5/Day5.txt', 'r')
 textLines = fileReader.readlines()

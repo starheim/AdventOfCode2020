@@ -49,6 +49,7 @@ for row in range(rows):
 
 print("My seat: {}\n".format(seatID))
 
+#Print all the seats for show
 for rows in seats:
     for columns in rows:
         print(columns,end = " ")
