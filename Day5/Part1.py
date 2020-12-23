@@ -1,17 +1,10 @@
 def findRow(min, max, reference):
-    print("Min: {} \nMax: {} \nReference {}".format(min, max, reference))
-    print("Ref len: {}".format(len(reference)))
     if(len(reference)== 1):
         if(reference == 'F'):
-            print("Result: {}\n".format(min))
-            print("---------------------------")
             return min
         else:
-            print("Result: {}\n".format(max))
-            print("---------------------------")
             return max
-    middle = (max + 1  - min) // 2 + min
-    print("Middle: {}\n".format(middle))
+    middle = (max + 1 - min) // 2 + min
     if reference[0] == 'F':
         return findRow(min, middle -1, reference[1:])
     else:
@@ -19,42 +12,34 @@ def findRow(min, max, reference):
 
 
 def findColoumn(min, max, reference):
-    print("Min: {} \nMax: {} \nReference: {}".format(min, max, reference))
-    print("Ref len: {}".format(len(reference)))
     if(len(reference)== 1):
         if(reference == 'L'):
-            print("Result: {}\n".format(min))
-            print("---------------------------")
             return min
         else:
-            print("Result: {}\n".format(max))
-            print("---------------------------")
             return max
-    middle = (max + 1  - min) // 2 + min
-    print("Middle: {}".format(middle))
+    middle = (max + 1 - min) // 2 + min
     if reference[0] == 'L':
-        print("L\n")
         return findColoumn(min, middle -1, reference[1:])
     else:
-        print("R\n")
         return findColoumn(middle, max, reference[1:])
 
 
-fileReader = open('Day5/Test.txt', 'r')
+fileReader = open('Day5/Day5.txt', 'r')
 textLines = fileReader.readlines()
 fileReader.close()
 
-rows = list(range(0, 128))
-
-
-columns = list(range(0, 8))
-
-n = 3
-m = 4
-a = [[0] * m for i in range(n)]
+rows = 127
+columns = 7
+seats = [[0] * columns for i in range(rows)]
+answer = 0
 
 for s in textLines:
-    row = findRow(0, 127, s.rstrip()[0:7])
-    column = findColoumn(0, 7, s.rstrip()[-3:])
+    row = findRow(0, rows, s.rstrip()[0:7])
+    column = findColoumn(0, columns, s.rstrip()[-3:])
+    id = row * 8 + column
+    if id > answer:
+        answer = id
     
-    print("\nRow: {} \nColumn: {} \nProduct: {} \n".format(row, column, row * 8 + column))
+    print("Row: {} \nColumn: {} \nProduct: {} \n".format(row, column, id))
+
+print("Highest seat id: {}".format(answer))
