@@ -5,13 +5,11 @@ fileReader.close()
 bagsContainingShinyGoldBag = []
 
 def contains(bag):
-    newBags = []
     for line in textLines:
         lineInfo = line.split(" bags contain ")
         if bag in lineInfo[1].rstrip():
-            newBags.append(lineInfo[0])
             contains(lineInfo[0])
-    bagsContainingShinyGoldBag.extend(newBags)
+            bagsContainingShinyGoldBag.append(lineInfo[0])
     
 contains("shiny gold")
 
